@@ -46,9 +46,13 @@ export default createTheme({
         textTransform: 'none',
         color: 'rgb(40, 42, 43)',
         fontSize: '0.9rem',
+        fontFamily: "'FiragoRegular'",
         transition: defaultTheme.transitions.create(['background-color', 'box-shadow', 'border', 'color'], {
           duration: defaultTheme.transitions.duration.short,
         }),
+        '&:hover': {
+          backgroundColor: 'none',
+        },
       },
       text: {
         padding: '6px 14px',
@@ -60,9 +64,9 @@ export default createTheme({
         },
       },
       outlinedPrimary: {
-        border: '2px solid #027AC5',
+        border: '2px solid #0fa94f',
         '&:hover': {
-          border: '2px solid rgb(1, 85, 137)',
+          border: '2px solid #0fa94f',
         },
       },
       startIcon: {
@@ -74,10 +78,23 @@ export default createTheme({
         color: 'rgb(40, 42, 43)',
         fontSize: '0.9rem',
       },
+      subtitle2: {
+        fontFamily: "'FiragoRegular' !important",
+      },
+      colorInherit: {
+        fontFamily: "'FiragoRegular' !important",
+        fontFeatureSettings: "'case' on",
+      },
+      h6: {
+        fontFamily: "'FiragoMedium' !important",
+        fontSize: '0.9rem',
+        letterSpacing: '0',
+      },
     },
     MuiInputBase: {
       root: {
         fontSize: '0.9rem',
+        fontFamily: "'FiragoRegular' !important",
       },
     },
     MuiSelect: {
@@ -157,10 +174,10 @@ export default createTheme({
   },
   palette: {
     primary: {
-      main: '#027AC5',
+      main: '#0fa94f',
     },
   },
-  brand: '#E22525',
+  brand: '#0fa94f',
   footerHeight: 72,
   mobileFooterHeight: 56,
   sidebarWidth: 300,

@@ -12,7 +12,11 @@ export enum Steps {
   deviceSelectionStep,
 }
 
-export default function PreJoinScreens() {
+interface preJoinScreensProps {
+  participantsString?: string;
+}
+
+export default function PreJoinScreens({ participantsString }: preJoinScreensProps) {
   const { user } = useAppState();
   const { getAudioAndVideoTracks } = useVideoContext();
   const { URLRoomName } = useParams<{ URLRoomName?: string }>();
@@ -53,7 +57,7 @@ export default function PreJoinScreens() {
   };
 
   return (
-    <IntroContainer>
+    <IntroContainer participantsString={participantsString}>
       <MediaErrorSnackbar error={mediaError} />
       {step === Steps.roomNameStep && (
         <RoomNameScreen

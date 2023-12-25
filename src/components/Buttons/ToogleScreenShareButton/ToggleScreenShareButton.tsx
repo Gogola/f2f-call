@@ -8,10 +8,10 @@ import Tooltip from '@material-ui/core/Tooltip';
 import useScreenShareParticipant from '../../../hooks/useScreenShareParticipant/useScreenShareParticipant';
 import useVideoContext from '../../../hooks/useVideoContext/useVideoContext';
 
-export const SCREEN_SHARE_TEXT = 'Share Screen';
-export const STOP_SCREEN_SHARE_TEXT = 'Stop Sharing Screen';
-export const SHARE_IN_PROGRESS_TEXT = 'Cannot share screen when another user is sharing';
-export const SHARE_NOT_SUPPORTED_TEXT = 'Screen sharing is not supported with this browser';
+export const SCREEN_SHARE_TEXT = 'ეკრანის გაზიარება';
+export const STOP_SCREEN_SHARE_TEXT = 'ეკრანის გაზიარების გამორთვა';
+export const SHARE_IN_PROGRESS_TEXT = 'ეკრანის გაზიარებას ვერ შეძლებთ, სანამ სხვა მომხმარებელს აქვს გაზიარებული';
+export const SHARE_NOT_SUPPORTED_TEXT = 'ბრაუზერს არ აქვს, ეკრანის გაზიარების მხარდაჭერა';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

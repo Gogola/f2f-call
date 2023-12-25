@@ -48,12 +48,17 @@ const useStyles = makeStyles((theme: Theme) => ({
   headline: {
     marginBottom: '1.3em',
     fontSize: '1.1rem',
+    fontFamily: "'FiragoRegular'",
   },
   listSection: {
     margin: '2em 0 0.8em',
     '&:first-child': {
       margin: '1em 0 2em 0',
     },
+  },
+  h6: {
+    fontFamily: "'FiragoRegular'",
+    color: '#000 !important',
   },
   noiseCancellationContainer: {
     display: 'flex',
@@ -81,19 +86,19 @@ export default function DeviceSelectionDialog({ open, onClose }: { open: boolean
 
   return (
     <Dialog open={open} onClose={onClose} classes={{ paper: classes.paper }}>
-      <DialogTitle>Audio and Video Settings</DialogTitle>
+      <DialogTitle className={classes.h6}>აუდიო და ვიდეო პარამეტრები</DialogTitle>
       <Divider />
       <DialogContent className={classes.container}>
         <div className={classes.listSection}>
           <Typography variant="h6" className={classes.headline}>
-            Video
+            ვიდეო
           </Typography>
           <VideoInputList />
         </div>
         <Divider />
         <div className={classes.listSection}>
           <Typography variant="h6" className={classes.headline}>
-            Audio
+            აუდიო
           </Typography>
 
           {isKrispInstalled && (
@@ -143,7 +148,7 @@ export default function DeviceSelectionDialog({ open, onClose }: { open: boolean
           <Divider />
           <div className={classes.listSection}>
             <Typography variant="h6" className={classes.headline}>
-              Gallery View
+              გალერეის რეჟიმი
             </Typography>
             <MaxGalleryViewParticipants />
           </div>
@@ -152,7 +157,7 @@ export default function DeviceSelectionDialog({ open, onClose }: { open: boolean
       <Divider />
       <DialogActions>
         <Button color="primary" variant="contained" className={classes.button} onClick={onClose}>
-          Done
+          დასრულება
         </Button>
       </DialogActions>
     </Dialog>

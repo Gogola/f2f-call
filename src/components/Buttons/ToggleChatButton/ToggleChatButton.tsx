@@ -96,7 +96,7 @@ export default function ToggleChatButton() {
         </div>
       }
     >
-      Chat
+      ჩატი
     </Button>
   );
 }

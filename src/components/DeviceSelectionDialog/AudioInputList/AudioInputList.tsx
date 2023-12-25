@@ -24,7 +24,7 @@ export default function AudioInputList() {
   return (
     <div>
       <Typography variant="subtitle2" gutterBottom>
-        Audio Input
+        აუდიო ინფუთი
       </Typography>
       <Grid container alignItems="center" justifyContent="space-between">
         <div className="inputSelect">

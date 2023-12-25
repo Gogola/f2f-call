@@ -12,15 +12,19 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    background: 'rgb(40, 42, 43)',
+    background: '#11222e',
     height: '100%',
   },
   container: {
     position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     flex: '1',
   },
   innerContainer: {
     display: 'flex',
+    background: '#08AA4F',
     width: '888px',
     height: '379px',
     borderRadius: '8px',
@@ -41,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundImage: Swoosh,
+    backgroundImage: '#000',
     backgroundSize: 'cover',
     width: '296px',
     [theme.breakpoints.down('sm')]: {
@@ -91,6 +95,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 interface IntroContainerProps {
   children: React.ReactNode;
+  participantsString?: string;
 }
 
 const IntroContainer = (props: IntroContainerProps) => {
@@ -108,7 +113,7 @@ const IntroContainer = (props: IntroContainerProps) => {
             <div className={classes.logoContainer}>
               <VideoLogo />
               <Typography variant="h6" className={classes.title}>
-                Twilio Programmable Video
+                {props.participantsString}
               </Typography>
             </div>
           </div>

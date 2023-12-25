@@ -21,9 +21,20 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: '100%',
   },
   continueButton: {
+    display: 'flex',
+    height: 'fit-content',
+    padding: '12px 16px 10px',
+    lineHeight: '1',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
     },
+  },
+  firagoMedium: {
+    fontFamily: "'FiragoMedium'",
+    fontFeatureSettings: "'case' on",
+  },
+  firagoRegular: {
+    fontFamily: "'FiragoRegular'",
   },
 }));
 
@@ -51,24 +62,23 @@ export default function RoomNameScreen({ name, roomName, setName, setRoomName, h
 
   return (
     <>
-      <Typography variant="h5" className={classes.gutterBottom}>
-        Join a Room
+      <Typography variant="h5" className={[classes.gutterBottom, classes.firagoMedium].join(' ')}>
+        შეხვედრის დაწყება
       </Typography>
-      <Typography variant="body1">
-        {hasUsername
-          ? "Enter the name of a room you'd like to join."
-          : "Enter your name and the name of a room you'd like to join"}
+      <Typography variant="body1" className={classes.firagoMedium}>
+        {hasUsername ? 'შეიყვანეთ თქვენი სახელი' : 'შეიყვანეთ თქვენი სახელი'}
       </Typography>
       <form onSubmit={handleSubmit}>
         <div className={classes.inputContainer}>
           {!hasUsername && (
             <div className={classes.textFieldContainer}>
-              <InputLabel shrink htmlFor="input-user-name">
-                Your Name
+              <InputLabel shrink htmlFor="input-user-name" className={classes.firagoRegular}>
+                თქვენი სახელი
               </InputLabel>
               <TextField
                 id="input-user-name"
                 variant="outlined"
+                className={classes.firagoRegular}
                 fullWidth
                 size="small"
                 value={name}
@@ -77,14 +87,16 @@ export default function RoomNameScreen({ name, roomName, setName, setRoomName, h
             </div>
           )}
           <div className={classes.textFieldContainer}>
-            <InputLabel shrink htmlFor="input-room-name">
-              Room Name
+            <InputLabel shrink htmlFor="input-room-name" className={classes.firagoRegular}>
+              ოთახის იდენტიფიკატორი
             </InputLabel>
             <TextField
               autoCapitalize="false"
               id="input-room-name"
               variant="outlined"
+              className={classes.firagoRegular}
               fullWidth
+              disabled
               size="small"
               value={roomName}
               onChange={handleRoomNameChange}
@@ -97,9 +109,9 @@ export default function RoomNameScreen({ name, roomName, setName, setRoomName, h
             type="submit"
             color="primary"
             disabled={!name || !roomName}
-            className={classes.continueButton}
+            className={[classes.continueButton, classes.firagoMedium].join(' ')}
           >
-            Continue
+            გაგრძელება
           </Button>
         </Grid>
       </form>

@@ -18,6 +18,23 @@ import { VideoProvider } from './components/VideoProvider';
 import useConnectionOptions from './utils/useConnectionOptions/useConnectionOptions';
 import UnsupportedBrowserWarning from './components/UnsupportedBrowserWarning/UnsupportedBrowserWarning';
 
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalFonts = createGlobalStyle`
+  @font-face {
+    font-family: 'FiragoMedium';
+    font-style: normal;
+    font-weight: 400;
+    src: url("/assets/fonts/FiraGO-Medium.ttf") format('truetype')
+  }
+  @font-face {
+    font-family: 'FiragoRegular';
+    font-style: normal;
+    font-weight: 400;
+    src: url("/assets/fonts/FiraGO-Regular.ttf") format('truetype')
+  }
+`;
+
 const VideoApp = () => {
   const { error, setError } = useAppState();
   const connectionOptions = useConnectionOptions();
@@ -36,6 +53,7 @@ const VideoApp = () => {
 
 export const ReactApp = () => (
   <MuiThemeProvider theme={theme}>
+    <GlobalFonts />
     <CssBaseline />
     <UnsupportedBrowserWarning>
       <Router>

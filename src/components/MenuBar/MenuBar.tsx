@@ -60,6 +60,16 @@ const useStyles = makeStyles((theme: Theme) =>
         display: 'none',
       },
     },
+    room: {
+      fontFamily: "'FiragoMedium'",
+      color: '#000 !important',
+      marginLeft: '5px',
+    },
+    body1: {
+      display: 'flex',
+      fontFamily: "'FiragoRegular'",
+      color: '#000 !important',
+    },
   })
 );
 
@@ -83,8 +93,12 @@ export default function MenuBar() {
         <Grid container justifyContent="space-around" alignItems="center">
           <Hidden smDown>
             <Grid style={{ flex: 1 }}>
-              <Typography variant="body1">
-                {room!.name} | {participants.length + 1} participant{participants.length ? 's' : ''}
+              <Typography variant="body1" className={classes.body1}>
+                ოთახის სახელი
+                <Typography className={classes.room}>
+                  {' '}
+                  #{room!.name} | {participants.length + 1} მონაწილე
+                </Typography>
               </Typography>
             </Grid>
           </Hidden>

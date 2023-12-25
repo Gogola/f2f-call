@@ -11,7 +11,16 @@ import StartRecordingIcon from '../../../icons/StartRecordingIcon';
 import StopRecordingIcon from '../../../icons/StopRecordingIcon';
 import SearchIcon from '@material-ui/icons/Search';
 import SettingsIcon from '../../../icons/SettingsIcon';
-import { Button, styled, Theme, useMediaQuery, Menu as MenuContainer, MenuItem, Typography } from '@material-ui/core';
+import {
+  Button,
+  makeStyles,
+  styled,
+  Theme,
+  useMediaQuery,
+  Menu as MenuContainer,
+  MenuItem,
+  Typography,
+} from '@material-ui/core';
 import { isSupported } from '@twilio/video-processors';
 
 import { useAppState } from '../../../state';
@@ -29,12 +38,18 @@ export const IconContainer = styled('div')({
   marginRight: '0.3em',
 });
 
+const useStyles = makeStyles((theme: Theme) => ({
+  firagoRegular: {
+    fontFamily: "'FiragoRegular'",
+  },
+}));
 export default function Menu(props: { buttonClassName?: string }) {
   const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
 
   const [aboutOpen, setAboutOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const classes = useStyles();
 
   const { isFetching, updateRecordingRules, roomType, setIsGalleryViewActive, isGalleryViewActive } = useAppState();
   const { setIsChatWindowOpen } = useChatContext();
@@ -56,7 +71,7 @@ export default function Menu(props: { buttonClassName?: string }) {
           <MoreIcon />
         ) : (
           <>
-            More
+            პარამეტრები
             <ExpandMoreIcon />
           </>
         )}
@@ -78,7 +93,9 @@ export default function Menu(props: { buttonClassName?: string }) {
           <IconContainer>
             <SettingsIcon />
           </IconContainer>
-          <Typography variant="body1">Audio and Video Settings</Typography>
+          <Typography variant="body1" className={classes.firagoRegular}>
+            აუდიო და ვიდეო პარამეტრები
+          </Typography>
         </MenuItem>
 
         {isSupported && (

@@ -18,9 +18,15 @@ import InfoIconOutlined from '../../../icons/InfoIconOutlined';
 const useStyles = makeStyles((theme: Theme) => ({
   gutterBottom: {
     marginBottom: '1em',
+    fontFamily: "'FiragoMedium'",
+    fontFeatureSettings: "'case' on",
   },
   marginTop: {
     marginTop: '1em',
+    fontSize: '0.6rem',
+  },
+  marginZero: {
+    marginTop: '0',
   },
   deviceButton: {
     width: '100%',
@@ -108,7 +114,7 @@ export default function DeviceSelectionScreen({ name, roomName, setStep }: Devic
   return (
     <>
       <Typography variant="h5" className={classes.gutterBottom}>
-        Join {roomName}
+        ოთახში შესვლა
       </Typography>
 
       <Grid container justifyContent="center">
@@ -128,7 +134,10 @@ export default function DeviceSelectionScreen({ name, roomName, setStep }: Devic
           <Grid container direction="column" justifyContent="space-between" style={{ alignItems: 'normal' }}>
             <div>
               <Hidden smDown>
-                <ToggleAudioButton className={classes.deviceButton} disabled={disableButtons} />
+                <ToggleAudioButton
+                  className={[classes.deviceButton, classes.marginZero].join(' ')}
+                  disabled={disableButtons}
+                />
                 <ToggleVideoButton className={classes.deviceButton} disabled={disableButtons} />
               </Hidden>
             </div>
@@ -190,7 +199,7 @@ export default function DeviceSelectionScreen({ name, roomName, setStep }: Devic
             <Grid item md={5} sm={12} xs={12}>
               <div className={classes.joinButtons}>
                 <Button variant="outlined" color="primary" onClick={() => setStep(Steps.roomNameStep)}>
-                  Cancel
+                  უკან
                 </Button>
                 <Button
                   variant="contained"
@@ -199,7 +208,7 @@ export default function DeviceSelectionScreen({ name, roomName, setStep }: Devic
                   onClick={handleJoin}
                   disabled={disableButtons}
                 >
-                  Join Now
+                  შესვლა
                 </Button>
               </div>
             </Grid>
