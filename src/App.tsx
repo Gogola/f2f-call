@@ -5,7 +5,6 @@ import MenuBar from './components/MenuBar/MenuBar';
 import MobileTopMenuBar from './components/MobileTopMenuBar/MobileTopMenuBar';
 import PreJoinScreens from './components/PreJoinScreens/PreJoinScreens';
 import ReconnectingNotification from './components/ReconnectingNotification/ReconnectingNotification';
-import RecordingNotifications from './components/RecordingNotifications/RecordingNotifications';
 import Room from './components/Room/Room';
 
 import useHeight from './hooks/useHeight/useHeight';
@@ -54,7 +53,7 @@ export default function App() {
     const token = query.get('token');
 
     axios
-      .get('https://staging-api.face2face.ge/api/video-call-info/' + token + '/' + roomName)
+      .get('https://api.face2face.ge/api/video-call-info/' + token + '/' + roomName)
       .then((reason: AxiosResponse) => {
         setTimeout(function() {
           if (reason.status === 201) {
